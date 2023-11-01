@@ -28,6 +28,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Test with pytest
+    - name: Run unit test
       run: |
-        pytest
+        pytest --cov --disable-warnings -q --cov-report xml:coverage.xml
+    - name: Get code coverage
+      uses: orgoro/coverage@v3.1
+        with:
+            coverageFile: coverage.xml
+            token: ${{ secrets.GITHUB_TOKEN }} 
+
