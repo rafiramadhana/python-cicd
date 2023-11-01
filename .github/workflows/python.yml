@@ -33,7 +33,7 @@ jobs:
         pytest --cov --disable-warnings -q --cov-report xml:coverage.xml
     - name: Get code coverage
       uses: orgoro/coverage@v3.1
-        with:
-            coverageFile: coverage.xml
-            token: ${{ secrets.GITHUB_TOKEN }} 
+      with:
+          coverageFile: coverage.xml
+          token: ${{ secrets.GITHUB_TOKEN }} 
 
